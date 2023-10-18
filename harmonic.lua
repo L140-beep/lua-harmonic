@@ -1,17 +1,22 @@
 Harmonic = {}
 Harmonic.__index = Harmonic
 
-function Harmonic:create(width, height, A, vel, angle, y, x)
+function Harmonic:create(width, height, A, vel, angle, y, x, speed)
     local harmonic = {}
     harmonic.width = width
     harmonic.height = height
     harmonic.A = A
     harmonic.vel = vel
     harmonic.angle = angle
+    harmonic.speed = speed
     harmonic.y = y
     harmonic.x = x
     setmetatable(harmonic, Harmonic)
     return harmonic
+end
+
+function Harmonic:update()
+    self.x = self.x + self.speed
 end
 
 function Harmonic:draw()
